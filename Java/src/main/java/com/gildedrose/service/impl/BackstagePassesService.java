@@ -7,7 +7,7 @@ import com.gildedrose.service.util.Util;
 public class BackstagePassesService implements Service {
 
 	@Override
-	public Item getItem(Item item) {
+	public Item updateItem(Item item) {
 		item.sellIn = item.sellIn - 1;
 		item.quality = Util.increaseQuality(item.quality);
 

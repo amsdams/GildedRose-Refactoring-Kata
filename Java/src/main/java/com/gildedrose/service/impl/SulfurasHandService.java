@@ -6,7 +6,7 @@ import com.gildedrose.service.Service;
 public class SulfurasHandService implements Service {
 
 	@Override
-	public Item getItem(Item item) {
+	public Item updateItem(Item item) {
 		return item;
 	}
 

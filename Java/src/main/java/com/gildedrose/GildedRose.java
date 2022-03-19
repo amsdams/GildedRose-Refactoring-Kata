@@ -28,19 +28,19 @@ class GildedRose {
 		for (Item item : items) {
 			switch (item.name) {
 			case AGED_BRIE:
-				Item agedBrie = agedBrieService.getItem(item);
+				Item agedBrie = agedBrieService.updateItem(item);
 				log.info("updated {}", agedBrie);
 				break;
 			case BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT:
-				Item backstagePasses = backstagePassesService.getItem(item);
+				Item backstagePasses = backstagePassesService.updateItem(item);
 				log.info("updated {}", backstagePasses);
 				break;
 			case SULFURAS_HAND_OF_RAGNAROS:
-				Item sulfurasHand = sulfurasHandService.getItem(item);
+				Item sulfurasHand = sulfurasHandService.updateItem(item);
 				log.info("updated {}", sulfurasHand);
 				break;
 			default:
-				Item defaultItem = defaultService.getItem(item);
+				Item defaultItem = defaultService.updateItem(item);
 				log.info("updated {}", defaultItem);
 				break;
 			}
