@@ -15,41 +15,27 @@ class GildedRose {
 
 	public void updateQuality() {
 		for (Item item : items) {
-
-			if (item.name.equals(AGED_BRIE)) {
+			switch (item.name) {
+			case AGED_BRIE:
 				AgedBrieService agedBrieService = new AgedBrieService();
-				Item updated = agedBrieService.getItem(item);
-				log.info("updated {}", updated);
-				
-
-			} else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
-				item.sellIn = item.sellIn - 1;
-				item.quality = Util.increaseQuality(item.quality);
-
-				if (item.sellIn < 10) {
-					item.quality = Util.increaseQuality(item.quality);
-				}
-
-				if (item.sellIn < 5) {
-					item.quality = Util.increaseQuality(item.quality);
-				}
-
-				if (item.sellIn < 0) {
-					item.quality = 0;
-				}
-
-			} else if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-				item.sellIn = item.sellIn;
-				item.quality = item.quality;
-
-			} else {
-				item.sellIn = item.sellIn - 1;
-				item.quality = Util.decreaseQuality(item.quality);
-
-				if (item.sellIn < 0) {
-					item.quality = Util.decreaseQuality(item.quality);
-
-				}
+				Item agedBrie = agedBrieService.getItem(item);
+				log.info("updated {}", agedBrie);
+				break;
+			case BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT:
+				BackstagePassesService backstagePassesService = new BackstagePassesService();
+				Item backstagePasses = backstagePassesService.getItem(item);
+				log.info("updated {}", backstagePasses);
+				break;
+			case SULFURAS_HAND_OF_RAGNAROS:
+				SulfurasHandService sulfurasHandService = new SulfurasHandService();
+				Item sulfurasHand = sulfurasHandService.getItem(item);
+				log.info("updated {}", sulfurasHand);
+				break;
+			default:
+				DefaultService defaultService = new DefaultService();
+				Item defaultItem = defaultService.getItem(item);
+				log.info("updated {}", defaultItem);
+				break;
 			}
 
 		}
