@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 class GildedRose {
 	private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
 	private static final String AGED_BRIE = "Aged Brie";
@@ -14,12 +17,10 @@ class GildedRose {
 		for (Item item : items) {
 
 			if (item.name.equals(AGED_BRIE)) {
-				item.sellIn = item.sellIn - 1;
-				item.quality = Util.increaseQuality(item.quality);
-
-				if (item.sellIn < 0) {
-					item.quality = Util.increaseQuality(item.quality);
-				}
+				AgedBrieService agedBrieService = new AgedBrieService();
+				Item updated = agedBrieService.getItem(item);
+				log.info("updated {}", updated);
+				
 
 			} else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
 				item.sellIn = item.sellIn - 1;
