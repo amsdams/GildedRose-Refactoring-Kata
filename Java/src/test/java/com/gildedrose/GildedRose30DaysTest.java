@@ -10,15 +10,12 @@ import com.gildedrose.service.Factory;
 
 import lombok.extern.slf4j.Slf4j;
 
-/* TODO, could have more tests for each service, 
- * for now all fixtures are here,
- * and specifically extra tests for conjured item 
+/* 
+ * for now all fixtures for 30 days are here,
+ * and updated extra tests for conjured item 
  */
 @Slf4j
 class GildedRose30DaysTest {
-
-	// using tests from TexttestFixture
-	// extended with 30days
 
 	
 

@@ -21,7 +21,7 @@ public class TexttestFixture {
 		Factory factory = new Factory();
 		GildedRose app = new GildedRose(factory, items);
 
-		int days = 31;
+		int days = 2;
 		if (args.length > 0) {
 			days = Integer.parseInt(args[0]) + 1;
 		}
