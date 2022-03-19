@@ -15,27 +15,22 @@ class GildedRose {
 
 			if (item.name.equals(AGED_BRIE)) {
 				item.sellIn = item.sellIn - 1;
-				item.quality = increaseQuality(item.quality);
+				item.quality = Util.increaseQuality(item.quality);
 
 				if (item.sellIn < 0) {
-					item.quality = increaseQuality(item.quality);
+					item.quality = Util.increaseQuality(item.quality);
 				}
 
 			} else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
 				item.sellIn = item.sellIn - 1;
-				item.quality = increaseQuality(item.quality);
+				item.quality = Util.increaseQuality(item.quality);
 
 				if (item.sellIn < 10) {
-					item.quality = increaseQuality(item.quality);
+					item.quality = Util.increaseQuality(item.quality);
 				}
 
 				if (item.sellIn < 5) {
-					item.quality = increaseQuality(item.quality);
-				}
-
-				if (item.sellIn < 0) {
-					item.quality = increaseQuality(item.quality);
-
+					item.quality = Util.increaseQuality(item.quality);
 				}
 
 				if (item.sellIn < 0) {
@@ -48,10 +43,10 @@ class GildedRose {
 
 			} else {
 				item.sellIn = item.sellIn - 1;
-				item.quality = decreaseQuality(item.quality);
+				item.quality = Util.decreaseQuality(item.quality);
 
 				if (item.sellIn < 0) {
-					item.quality = decreaseQuality(item.quality);
+					item.quality = Util.decreaseQuality(item.quality);
 
 				}
 			}
@@ -59,18 +54,4 @@ class GildedRose {
 		}
 	}
 
-	public int decreaseQuality(int quality) {
-		if (quality > 0) {
-			quality = quality - 1;
-		}
-		return quality;
-
-	}
-
-	public int increaseQuality(int quality) {
-		if (quality < 50) {
-			quality = quality + 1;
-		}
-		return quality;
-	}
 }
