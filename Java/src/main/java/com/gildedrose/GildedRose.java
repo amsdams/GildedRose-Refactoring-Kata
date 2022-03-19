@@ -12,55 +12,65 @@ class GildedRose {
 
 	public void updateQuality() {
 		for (Item item : items) {
-			if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
 
-				if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-					decreaseQuality(item);
-				}
-			} else {
-				increaseQuality(item);
-				if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
-					
-					if (item.sellIn < 11) {
-						increaseQuality(item);
-					}
-
-					if (item.sellIn < 6) {
-						increaseQuality(item);
-					}
-				}
-			}
-
-			if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+			if (item.name.equals(AGED_BRIE)) {
 				item.sellIn = item.sellIn - 1;
-			}
+				item.quality = increaseQuality(item.quality);
 
-			if (item.sellIn < 0) {
-				if (!item.name.equals(AGED_BRIE)) {
-					if (!item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
+				if (item.sellIn < 0) {
+					item.quality = increaseQuality(item.quality);
+				}
 
-						if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-							decreaseQuality(item);
-						}
-					} else {
-						item.quality = item.quality - item.quality;
-					}
-				} else {
-					increaseQuality(item);
+			} else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT)) {
+				item.sellIn = item.sellIn - 1;
+				item.quality = increaseQuality(item.quality);
+
+				if (item.sellIn < 10) {
+					item.quality = increaseQuality(item.quality);
+				}
+
+				if (item.sellIn < 5) {
+					item.quality = increaseQuality(item.quality);
+				}
+
+				if (item.sellIn < 0) {
+					item.quality = increaseQuality(item.quality);
+
+				}
+
+				if (item.sellIn < 0) {
+					item.quality = 0;
+				}
+
+			} else if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+				item.sellIn = item.sellIn;
+				item.quality = item.quality;
+
+			} else {
+				item.sellIn = item.sellIn - 1;
+				item.quality = decreaseQuality(item.quality);
+
+				if (item.sellIn < 0) {
+					item.quality = decreaseQuality(item.quality);
+
 				}
 			}
+
 		}
 	}
 
-	public void decreaseQuality(Item item) {
-		if (item.quality > 0) {
-			item.quality = item.quality - 1;
+	public int decreaseQuality(int quality) {
+		if (quality > 0) {
+			quality = quality - 1;
 		}
+		return quality;
+
 	}
 
-	public void increaseQuality(Item item) {
-		if (item.quality < 50) {
-			item.quality = item.quality + 1;
+	public int increaseQuality(int quality) {
+		if (quality < 50) {
+			quality = quality + 1;
 		}
+		return quality;
 	}
 }
