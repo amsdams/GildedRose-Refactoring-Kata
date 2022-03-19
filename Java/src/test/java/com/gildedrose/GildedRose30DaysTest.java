@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.gildedrose.model.Item;
+import com.gildedrose.service.Factory;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +19,9 @@ class GildedRose30DaysTest {
 		String name = "+5 Dexterity Vest";
 		Item actual = new Item(name, 10, 20);
 		Item[] items = new Item[] { actual };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0 = new Item(name, 10, 20);
 		Item expected_day_1 = new Item(name, 9, 19);
@@ -78,7 +81,8 @@ class GildedRose30DaysTest {
 		String name = "Aged Brie";
 		Item actual = new Item(name, 2, 0);
 		Item[] items = new Item[] { actual };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0 = new Item(name, 2, 0);
 		Item expected_day_1 = new Item(name, 1, 1);
@@ -138,7 +142,8 @@ class GildedRose30DaysTest {
 		String name = "Elixir of the Mongoose";
 		Item actual = new Item(name, 5, 7);
 		Item[] items = new Item[] { actual };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0 = new Item(name, 5, 7);
 		Item expected_day_1 = new Item(name, 4, 6);
@@ -199,7 +204,8 @@ class GildedRose30DaysTest {
 		Item actual0 = new Item(name, 0, 80);
 		Item actual1 = new Item(name, -1, 80);
 		Item[] items = new Item[] { actual0, actual1 };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0_item_0 = new Item(name, 0, 80);
 		Item expected_day_0_item_1 = new Item(name, -1, 80);
@@ -338,7 +344,8 @@ class GildedRose30DaysTest {
 		Item actual1 = new Item(name, 10, 49);
 		Item actual2 = new Item(name, 5, 49);
 		Item[] items = new Item[] { actual0, actual1, actual2 };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0_item_0 = new Item(name, 15, 20);
 		Item expected_day_0_item_1 = new Item(name, 10, 49);
@@ -517,7 +524,8 @@ class GildedRose30DaysTest {
 		String name = "Conjured Mana Cake";
 		Item actual = new Item(name, 3, 6);
 		Item[] items = new Item[] { actual };
-		GildedRose app = new GildedRose(items);
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
 
 		Item expected_day_0 = new Item(name, 3, 6);
 		Item expected_day_1 = new Item(name, 2, 5);
