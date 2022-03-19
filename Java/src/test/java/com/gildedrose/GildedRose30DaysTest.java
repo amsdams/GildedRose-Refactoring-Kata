@@ -1,6 +1,8 @@
 package com.gildedrose;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.gildedrose.model.Item;
@@ -16,7 +18,7 @@ class GildedRose30DaysTest {
 
 	@Test
 	void test_plus5_Dexterity_Vest_day30() {
-		String name = "+5 Dexterity Vest";
+		String name = Factory.PLUS_5_DEXTERITY_VEST;
 		Item actual = new Item(name, 10, 20);
 		Item[] items = new Item[] { actual };
 		Factory factory = new Factory();
@@ -65,9 +67,9 @@ class GildedRose30DaysTest {
 
 		// days
 		for (int i = 0; i < 30; i++) {
-			Assertions.assertEquals(expectedItems[i].name, actual.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
 			log.debug("item {}", actual);
 
 			app.updateQuality();
@@ -78,7 +80,7 @@ class GildedRose30DaysTest {
 
 	@Test
 	void test_Aged_Brie_day30() {
-		String name = "Aged Brie";
+		String name = Factory.AGED_BRIE;
 		Item actual = new Item(name, 2, 0);
 		Item[] items = new Item[] { actual };
 		Factory factory = new Factory();
@@ -126,9 +128,9 @@ class GildedRose30DaysTest {
 
 		// days
 		for (int i = 0; i < 30; i++) {
-			Assertions.assertEquals(expectedItems[i].name, actual.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
 			log.debug("item {}", actual);
 
 			app.updateQuality();
@@ -139,7 +141,7 @@ class GildedRose30DaysTest {
 
 	@Test
 	void test_Elixirof_the_Mongoose_day30() {
-		String name = "Elixir of the Mongoose";
+		String name = Factory.ELIXIR_OF_THE_MONGOOSE;
 		Item actual = new Item(name, 5, 7);
 		Item[] items = new Item[] { actual };
 		Factory factory = new Factory();
@@ -187,9 +189,9 @@ class GildedRose30DaysTest {
 
 		// days
 		for (int i = 0; i < 30; i++) {
-			Assertions.assertEquals(expectedItems[i].name, actual.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
 			log.debug("item {}", actual);
 
 			app.updateQuality();
@@ -200,7 +202,7 @@ class GildedRose30DaysTest {
 
 	@Test
 	void test_Sulfuras_Hand_Ragnaros_day30_quantity2() {
-		String name = "Sulfuras, Hand of Ragnaros";
+		String name = Factory.SULFURAS_HAND_OF_RAGNAROS;
 		Item actual0 = new Item(name, 0, 80);
 		Item actual1 = new Item(name, -1, 80);
 		Item[] items = new Item[] { actual0, actual1 };
@@ -321,14 +323,14 @@ class GildedRose30DaysTest {
 		// days, item 0
 		for (int i = 0; i < 30; i++) {
 
-			Assertions.assertEquals(expectedItems[i].name, actual0.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual0.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual0.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual0.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual0.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual0.sellIn, "sellIn test failed");
 			log.debug("item {}", actual0);
 
-			Assertions.assertEquals(expectedItems[i + 31].name, actual1.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i + 31].quality, actual1.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i + 31].sellIn, actual1.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i + 31].name, actual1.name, "name test failed");
+			assertEquals(expectedItems[i + 31].quality, actual1.quality, "quality test failed");
+			assertEquals(expectedItems[i + 31].sellIn, actual1.sellIn, "sellIn test failed");
 			log.debug("item {}", actual1);
 
 			app.updateQuality();
@@ -339,7 +341,7 @@ class GildedRose30DaysTest {
 
 	@Test
 	void test_Backstage_passes_to_a_TAFKAL80ETC_concert_day30_quantity3() {
-		String name = "Backstage passes to a TAFKAL80ETC concert";
+		String name = Factory.BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT;
 		Item actual0 = new Item(name, 15, 20);
 		Item actual1 = new Item(name, 10, 49);
 		Item actual2 = new Item(name, 5, 49);
@@ -499,29 +501,34 @@ class GildedRose30DaysTest {
 		for (int i = 0; i < 30; i++) {
 			log.debug("day {}", i);
 
-			Assertions.assertEquals(expectedItems[i].name, actual0.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual0.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual0.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual0.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual0.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual0.sellIn, "sellIn test failed");
 			log.debug("item {}", actual0);
 
-			Assertions.assertEquals(expectedItems[i + 31].name, actual1.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i + 31].quality, actual1.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i + 31].sellIn, actual1.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i + 31].name, actual1.name, "name test failed");
+			assertEquals(expectedItems[i + 31].quality, actual1.quality, "quality test failed");
+			assertEquals(expectedItems[i + 31].sellIn, actual1.sellIn, "sellIn test failed");
 			log.debug("item {}", actual1);
 
-			Assertions.assertEquals(expectedItems[i + 62].name, actual2.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i + 62].quality, actual2.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i + 62].sellIn, actual2.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i + 62].name, actual2.name, "name test failed");
+			assertEquals(expectedItems[i + 62].quality, actual2.quality, "quality test failed");
+			assertEquals(expectedItems[i + 62].sellIn, actual2.sellIn, "sellIn test failed");
 			log.debug("item {}", actual2);
 
 			app.updateQuality();
 		}
 
 	}
+	/*
+	 * from testtextficture, but without new requirement
+	 * "- "Conjured" items degrade in Quality twice as fast as normal items"
+	 */
 
+	@Disabled("See new requirement about \"Conjured\" items degrade in Quality twice as fast as normal items")
 	@Test
-	void test_Conjured_Mana_Cake_day30() {
-		String name = "Conjured Mana Cake";
+	void test_Conjured_Mana_Cake_day30_Old() {
+		String name = Factory.CONJURED_MANA_CAKE;
 		Item actual = new Item(name, 3, 6);
 		Item[] items = new Item[] { actual };
 		Factory factory = new Factory();
@@ -571,9 +578,9 @@ class GildedRose30DaysTest {
 		for (int i = 0; i < 30; i++) {
 			log.debug("day {}", i);
 
-			Assertions.assertEquals(expectedItems[i].name, actual.name, "name test failed");
-			Assertions.assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
-			Assertions.assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
+			assertEquals(expectedItems[i].name, actual.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
 			log.debug("item {}", actual);
 
 			app.updateQuality();
@@ -582,4 +589,66 @@ class GildedRose30DaysTest {
 
 	}
 
+	@Test
+	void test_Conjured_Mana_Cake_day30() {
+		String name = Factory.CONJURED_MANA_CAKE;
+		Item actual = new Item(name, 3, 6);
+		Item[] items = new Item[] { actual };
+		Factory factory = new Factory();
+		GildedRose app = new GildedRose(factory, items);
+
+		Item expected_day_0 = new Item(name, 3, 6);
+		Item expected_day_1 = new Item(name, 2, 4);
+		Item expected_day_2 = new Item(name, 1, 2);
+		Item expected_day_3 = new Item(name, 0, 0);
+		Item expected_day_4 = new Item(name, -1, 0);
+		Item expected_day_5 = new Item(name, -2, 0);
+		Item expected_day_6 = new Item(name, -3, 0);
+		Item expected_day_7 = new Item(name, -4, 0);
+		Item expected_day_8 = new Item(name, -5, 0);
+		Item expected_day_9 = new Item(name, -6, 0);
+		Item expected_day_10 = new Item(name, -7, 0);
+		Item expected_day_11 = new Item(name, -8, 0);
+		Item expected_day_12 = new Item(name, -9, 0);
+		Item expected_day_13 = new Item(name, -10, 0);
+		Item expected_day_14 = new Item(name, -11, 0);
+		Item expected_day_15 = new Item(name, -12, 0);
+		Item expected_day_16 = new Item(name, -13, 0);
+		Item expected_day_17 = new Item(name, -14, 0);
+		Item expected_day_18 = new Item(name, -15, 0);
+		Item expected_day_19 = new Item(name, -16, 0);
+		Item expected_day_20 = new Item(name, -17, 0);
+		Item expected_day_21 = new Item(name, -18, 0);
+		Item expected_day_22 = new Item(name, -19, 0);
+		Item expected_day_23 = new Item(name, -20, 0);
+		Item expected_day_24 = new Item(name, -21, 0);
+		Item expected_day_25 = new Item(name, -22, 0);
+		Item expected_day_26 = new Item(name, -23, 0);
+		Item expected_day_27 = new Item(name, -24, 0);
+		Item expected_day_28 = new Item(name, -25, 0);
+		Item expected_day_29 = new Item(name, -26, 0);
+		Item expected_day_30 = new Item(name, -27, 0);
+		// @formatter:off
+	    	Item[] expectedItems = new Item[] {
+	    			expected_day_0, expected_day_1, expected_day_2, expected_day_3, expected_day_4, expected_day_5, expected_day_6, expected_day_7, expected_day_8, expected_day_9,
+	    			expected_day_10, expected_day_11, expected_day_12, expected_day_13, expected_day_14, expected_day_15, expected_day_16, expected_day_17, expected_day_18, expected_day_19,
+	    			expected_day_20, expected_day_21, expected_day_22, expected_day_23, expected_day_24, expected_day_25, expected_day_26, expected_day_27, expected_day_28, expected_day_29,
+	    			expected_day_30
+	    	};
+	    	// @formatter:on
+
+		// days
+		for (int i = 0; i < 30; i++) {
+			log.debug("day {}", i);
+
+			assertEquals(expectedItems[i].name, actual.name, "name test failed");
+			assertEquals(expectedItems[i].quality, actual.quality, "quality test failed");
+			assertEquals(expectedItems[i].sellIn, actual.sellIn, "sellIn test failed");
+			log.debug("item {}", actual);
+
+			app.updateQuality();
+
+		}
+
+	}
 }

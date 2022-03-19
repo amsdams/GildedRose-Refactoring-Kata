@@ -3,6 +3,7 @@ package com.gildedrose.service.impl;
 import com.gildedrose.model.Item;
 import com.gildedrose.service.Service;
 import com.gildedrose.service.util.Util;
+
 /*
  * "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
  * Quality increases by 2 when there are 10 days or less

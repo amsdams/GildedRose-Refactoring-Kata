@@ -3,6 +3,7 @@ package com.gildedrose.service.impl;
 import com.gildedrose.model.Item;
 import com.gildedrose.service.Service;
 import com.gildedrose.service.util.Util;
+
 /*
  * "Aged Brie" actually increases in Quality the older it gets
  */
