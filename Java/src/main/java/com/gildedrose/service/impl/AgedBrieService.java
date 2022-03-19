@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.service.impl;
+
+import com.gildedrose.model.Item;
+import com.gildedrose.service.Service;
+import com.gildedrose.service.util.Util;
 
 public class AgedBrieService implements Service {
 

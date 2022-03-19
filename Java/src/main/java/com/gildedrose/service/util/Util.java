@@ -1,6 +1,10 @@
-package com.gildedrose;
+package com.gildedrose.service.util;
 
 public class Util {
+	private Util() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static int decreaseQuality(int quality) {
 		if (quality > 0) {
 			quality = quality - 1;
